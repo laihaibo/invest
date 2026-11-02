@@ -1,6 +1,12 @@
 /** 客户端安全的计划数据类型与工具（禁止 import node 模块） */
 
-export type PlanItemType = "report" | "prospectus" | "fund" | "review";
+export type PlanItemType =
+  | "report"
+  | "prospectus"
+  | "fund"
+  | "review"
+  | "quant-concept"
+  | "quant-drill";
 
 export type PlanPriority = "high" | "medium" | "low";
 

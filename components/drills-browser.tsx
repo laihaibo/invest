@@ -21,21 +21,17 @@ export function DrillsBrowser({
 }) {
   const [onlyWrong, setOnlyWrong] = useState(false);
   const [errFilter, setErrFilter] = useState<DrillErrorType | null>(null);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [errorTypes, setErrorTypes] = useState<Record<string, DrillErrorType | null>>({});
 
   useEffect(() => {
-    const a: Record<string, string> = {};
     const e: Record<string, DrillErrorType | null> = {};
     for (const d of drills) {
-      a[d.id] = localStorage.getItem(`invest.drill.answer.${d.id}`) ?? "";
       const et = localStorage.getItem(`invest.drill.errorType.${d.id}`);
       e[d.id] =
         et === "concept-blur" || et === "calc-error" || et === "assumption-wrong" || et === "data-misread"
           ? (et as DrillErrorType)
           : d.errorType;
     }
-    setAnswers(a);
     setErrorTypes(e);
   }, [drills]);
 

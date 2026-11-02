@@ -18,6 +18,14 @@ const TYPE_LABEL: Record<PlanItemType, string> = {
   prospectus: "招股书",
   fund: "基金",
   review: "复盘",
+  "quant-concept": "概念",
+  "quant-drill": "习题",
+};
+
+/** quant 类型自动跳转：概念 → /concepts，习题 → /drill */
+const TYPE_LINK: Partial<Record<PlanItemType, string>> = {
+  "quant-concept": "/concepts",
+  "quant-drill": "/drill",
 };
 
 export function PlanItemCard({
@@ -30,6 +38,7 @@ export function PlanItemCard({
   onToggleStatus: () => void;
 }) {
   const isReading = item.type === "report" || item.type === "prospectus";
+  const quantHref = TYPE_LINK[item.type];
 
   return (
     <div
@@ -53,6 +62,14 @@ export function PlanItemCard({
               href="/guide?focus=method"
               className="mt-0.5 block font-medium leading-snug transition-colors hover:text-primary"
               title="点击查看三遍阅读法"
+            >
+              {item.company} · {item.title}
+            </Link>
+          ) : quantHref ? (
+            <Link
+              href={quantHref}
+              className="mt-0.5 block font-medium leading-snug transition-colors hover:text-primary"
+              title={item.type === "quant-concept" ? "去概念库" : "去习题带练"}
             >
               {item.company} · {item.title}
             </Link>

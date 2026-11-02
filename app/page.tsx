@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { BookOpen, Flame } from "lucide-react";
 import { NoteCard } from "@/components/note-card";
+import { QuantHomeCard } from "@/components/quant-home-card";
 import { QuoteOfDay } from "@/components/quote-of-day";
 import { TodayPlanCard } from "@/components/today-plan-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { getAllNotes } from "@/lib/content";
+import { getAllConcepts } from "@/lib/concepts";
+import { getAllDrills } from "@/lib/drills";
 import { getAllPlans } from "@/lib/plans";
 import { getStats } from "@/lib/stats";
 
@@ -140,6 +143,11 @@ export default function HomePage() {
       </section>
 
       <TodayPlanCard items={getAllPlans().flatMap((p) => p.items)} />
+
+      <QuantHomeCard
+        concepts={getAllConcepts()}
+        drills={getAllDrills()}
+      />
 
       <QuoteOfDay />
     </div>

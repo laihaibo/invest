@@ -267,6 +267,102 @@ items:
     title: "月度大复盘：22 篇归档 + 12 月规划"
     priority: high
     status: todo
+  - date: "2026-11-02"
+    company: 概念库
+    type: quant-concept
+    title: "概念：均值、方差与标准差（复习）"
+    priority: medium
+    status: todo
+  - date: "2026-11-03"
+    company: 习题库
+    type: quant-drill
+    title: "习题：夏普比率杠杆对比（计算）"
+    priority: high
+    status: todo
+  - date: "2026-11-05"
+    company: 概念库
+    type: quant-concept
+    title: "概念：夏普比率精讲（含口径陷阱）"
+    priority: high
+    status: todo
+  - date: "2026-11-06"
+    company: 习题库
+    type: quant-drill
+    title: "习题：夏普口径陷阱题"
+    priority: high
+    status: todo
+  - date: "2026-11-09"
+    company: 概念库
+    type: quant-concept
+    title: "概念：相关系数与协方差辨析"
+    priority: medium
+    status: todo
+  - date: "2026-11-10"
+    company: 习题库
+    type: quant-drill
+    title: "习题：年化与波动拖累（计算）"
+    priority: medium
+    status: todo
+  - date: "2026-11-12"
+    company: 概念库
+    type: quant-concept
+    title: "概念：最大回撤与卡玛比率"
+    priority: medium
+    status: todo
+  - date: "2026-11-13"
+    company: 习题库
+    type: quant-drill
+    title: "习题：索提诺与下行偏差（计算）"
+    priority: high
+    status: todo
+  - date: "2026-11-16"
+    company: 概念库
+    type: quant-concept
+    title: "概念：Alpha 与 Beta 分离"
+    priority: high
+    status: todo
+  - date: "2026-11-17"
+    company: 习题库
+    type: quant-drill
+    title: "习题：胜率与盈亏比期望（计算）"
+    priority: high
+    status: todo
+  - date: "2026-11-19"
+    company: 概念库
+    type: quant-concept
+    title: "概念：动量因子与 12-1 构建"
+    priority: medium
+    status: todo
+  - date: "2026-11-20"
+    company: 习题库
+    type: quant-drill
+    title: "习题：ROE 三因子拆解（概念）"
+    priority: medium
+    status: todo
+  - date: "2026-11-23"
+    company: 概念库
+    type: quant-concept
+    title: "概念：过拟合五盏灯"
+    priority: high
+    status: todo
+  - date: "2026-11-24"
+    company: 习题库
+    type: quant-drill
+    title: "习题：组合波动与分散红利（计算）"
+    priority: high
+    status: todo
+  - date: "2026-11-26"
+    company: 概念库
+    type: quant-concept
+    title: "概念：未来函数三变装审计"
+    priority: high
+    status: todo
+  - date: "2026-11-27"
+    company: 习题库
+    type: quant-drill
+    title: "习题：协方差辨析（概念）"
+    priority: medium
+    status: todo
 fund_reminder:
   quarterly_task: "每季度挑 5-10 只业绩前 20% 且基金经理从业 5 年以上的主动基金，把他们季报前十大重仓股汇总去重，筛出 3 只以上基金同时重仓的标的，进入财报阅读候选池，自己只负责择时"
   next_due: "2027-01-20"

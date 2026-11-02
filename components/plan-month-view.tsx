@@ -106,7 +106,7 @@ export function PlanMonthView({ plans }: { plans: MonthPlan[] }) {
       <div className="space-y-3">
         {items.map((it) => (
           <PlanItemCard
-            key={it.date}
+            key={`${it.date}-${it.title}`}
             item={it}
             isToday={today !== "" && it.date === today}
             onToggleStatus={() => setStatus(it.date, NEXT_STATUS[it.status])}
