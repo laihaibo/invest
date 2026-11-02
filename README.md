@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Invest · 个人投资学习平台
 
-## Getting Started
+以「年」为单位的认知复利实验：本地写 Markdown → git push → GitHub Actions 自动构建 → 手机上通过日历视图回看认知轨迹。
 
-First, run the development server:
+## 技术栈
+
+- Next.js 15（App Router，`output: 'export'` 纯静态导出）
+- shadcn/ui + Tailwind CSS v4（CSS 变量主题，深浅模式跟随系统）
+- pnpm + Node 22.x（`engines` 字段锁定）
+- 内容源：`content/` 下的本地 Markdown（YAML frontmatter），`gray-matter` 解析
+- TypeScript 严格模式，无数据库 / 无后端 / 无外部服务
+
+## 日常使用（5 步循环）
+
+1. **生成今日模板**：
+   ```bash
+   pnpm new:quant                      # 量化学习
+   pnpm new:report 2026-11-02          # 财报精读
+   pnpm new:prospectus 2026-11-02      # 招股书精读
+   ```
+   自动创建 `content/<type>/<date>-<slug>.md`，frontmatter 已按类型备好。
+2. **编辑内容**：填写标题、核心观点、正文。quant 笔记记得填 `problem / my_answer / reflection`。
+3. **本地预览**：`pnpm dev`，浏览器打开 http://localhost:3000/invest/。
+4. **发布**：`git add -A && git commit -m "docs: 2026-11-02 量化笔记"`，然后 `git push`。
+5. **手机回看**：等约 1 分钟，刷新 GitHub Pages 站点，日历上今天的圆点就亮了。
+
+## 页面
+
+| 路由 | 说明 |
+| --- | --- |
+| `/` | 今日最新一篇 + 双主线连续打卡 + 总量统计 + 每日金句 |
+| `/calendar` | 月历视图（核心页）：圆点标记当日条目，左右滑动切月，点击日期看当天笔记 |
+| `/quant` | 量化学习列表（卡片式，倒序） |
+| `/quant/[slug]` | 量化详情：习题 → 我的解法 → 卡点 → 费曼讲解 |
+| `/report/[slug]` | 财报 / 招股书详情（共用路由，slug 不可重名） |
+| `/archive` | 全部笔记时间线，点击 tag 聚合成思维模型库 |
+| `/about` | 三阶段目标 |
+
+## 站点地址
+
+启用 GitHub Pages（Settings → Pages → Source 选 **GitHub Actions**）后，站点在：
+
+**https://laihaibo.github.io/invest/**
+
+## 开发
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install   # 安装依赖
+pnpm dev       # 本地开发
+pnpm build     # 静态导出到 out/
+pnpm lint      # ESLint 检查
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
