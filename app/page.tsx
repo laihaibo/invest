@@ -2,8 +2,10 @@ import Link from "next/link";
 import { BookOpen, Flame } from "lucide-react";
 import { NoteCard } from "@/components/note-card";
 import { QuoteOfDay } from "@/components/quote-of-day";
+import { TodayPlanCard } from "@/components/today-plan-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { getAllNotes } from "@/lib/content";
+import { getAllPlans } from "@/lib/plans";
 import { getStats } from "@/lib/stats";
 
 function StatTile({
@@ -136,6 +138,8 @@ export default function HomePage() {
           <StatTile label="思维模型" value={stats.uniqueTags} suffix="个" />
         </div>
       </section>
+
+      <TodayPlanCard items={getAllPlans().flatMap((p) => p.items)} />
 
       <QuoteOfDay />
     </div>

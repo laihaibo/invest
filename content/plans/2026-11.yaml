@@ -1,0 +1,277 @@
+# 月度研究计划 —— 每月一个 YAML 文件，push 即生效
+# status 存 localStorage（invest.plan.status.<date>），YAML 里的 status 仅作初始默认值
+month: "2026-11"
+theme: "AI 产业链月：A 股三季报复盘 + 英伟达财报 + Anthropic IPO"
+weekly_themes:
+  - week: 1
+    title: "A 股三季报复盘周"
+    note: "AI 硬件链增速排序 vs 全球景气度"
+  - week: 2
+    title: "存储与光模块深水区"
+    note: "SK 海力士 / 紫金 / 工行 / 美的 + Anthropic S-1 上篇"
+  - week: 3
+    title: "英伟达财报周 + Anthropic IPO 周"
+    note: "电话会逐字稿 + 产业链 A 股映射 + 判断回溯"
+  - week: 4
+    title: "横向对比与基金池"
+    note: "微软 FY26Q1 + 三星/海力士/美光对比 + 基金重仓池 SOP 触发"
+  - week: 5
+    title: "月度大复盘"
+    note: "22 篇归档 + 12 月规划"
+items:
+  - date: "2026-11-02"
+    company: 长鑫科技
+    type: report
+    title: "Q3 财报精读：存储链核心"
+    source:
+      name: 巨潮资讯网
+      url: http://www.cninfo.com.cn
+    priority: high
+    status: done
+    notes: "净利润 +2600%，注意低基数"
+  - date: "2026-11-03"
+    company: 寒武纪
+    type: report
+    title: "Q3 财报精读：AI 芯片设计第一股"
+    source:
+      name: 巨潮资讯网
+      url: http://www.cninfo.com.cn
+    priority: high
+    status: todo
+    notes: "关注合同负债与存货，验证算力需求真实性"
+  - date: "2026-11-04"
+    company: 海光信息
+    type: report
+    title: "Q3 财报精读：x86 授权路线的国产替代"
+    source:
+      name: 巨潮资讯网
+      url: http://www.cninfo.com.cn
+    priority: medium
+    status: todo
+    notes: "对比寒武纪毛利率结构"
+  - date: "2026-11-05"
+    company: 中际旭创
+    type: report
+    title: "Q3 财报精读：光模块出海龙头"
+    source:
+      name: 巨潮资讯网
+      url: http://www.cninfo.com.cn
+    priority: high
+    status: todo
+    notes: "800G/1.6T 出货节奏是核心变量"
+  - date: "2026-11-06"
+    company: 三星电子
+    type: report
+    title: "Q3 精读：DS 部门 HBM4 占比 60%"
+    source:
+      name: Samsung IR
+      url: https://www.samsung.com/global/ir/financial-information/earnings-release/
+    priority: high
+    status: todo
+  - date: "2026-11-07"
+    company: 招股书固定档
+    type: prospectus
+    title: "招股书精读固定档：自选一家待上市 AI 公司"
+    source:
+      name: SEC EDGAR
+      url: https://www.sec.gov/edgar/search/
+    priority: medium
+    status: todo
+    notes: "周六招股书日，用 /guide 提示词库"
+  - date: "2026-11-08"
+    company: 周复盘
+    type: review
+    title: "周复盘：存储链五篇笔记交叉对比"
+    priority: low
+    status: todo
+    notes: "长鑫/三星/海力士毛利率横向排序"
+  - date: "2026-11-09"
+    company: SK 海力士
+    type: report
+    title: "Q3 精读：HBM 供需与定价权"
+    source:
+      name: SK Hynix IR
+      url: https://www.skhynix.com/ir/UI-FR-IR06
+    priority: high
+    status: todo
+    notes: "对比三星 DS 部门营业利润率"
+  - date: "2026-11-10"
+    company: 紫金矿业
+    type: report
+    title: "Q3 财报精读：金铜双轮的周期位置"
+    source:
+      name: 巨潮资讯网
+      url: http://www.cninfo.com.cn
+    priority: medium
+    status: todo
+    notes: "金价 vs 产量，谁贡献更多利润增量"
+  - date: "2026-11-12"
+    company: 工商银行
+    type: report
+    title: "Q3 财报精读：净息差触底了吗"
+    source:
+      name: 巨潮资讯网
+      url: http://www.cninfo.com.cn
+    priority: medium
+    status: todo
+    notes: "银行股是估值锚，练三张表基本功"
+  - date: "2026-11-13"
+    company: 美的集团
+    type: report
+    title: "Q3 财报精读：To B 第二曲线进展"
+    source:
+      name: 巨潮资讯网
+      url: http://www.cninfo.com.cn
+    priority: medium
+    status: todo
+    notes: "库卡与楼宇科技毛利率"
+  - date: "2026-11-14"
+    company: Anthropic PBC
+    type: prospectus
+    title: "S-1 下篇：风险因素 + 募资用途"
+    source:
+      name: SEC EDGAR 搜 Anthropic PBC
+      url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=Anthropic&type=S-1
+    priority: high
+    status: todo
+    notes: "用招股书精读助手提示词"
+  - date: "2026-11-15"
+    company: 周复盘
+    type: review
+    title: "周复盘：存储 + 周期 + 银行三类生意的ROE结构"
+    priority: low
+    status: todo
+  - date: "2026-11-16"
+    company: Anthropic PBC
+    type: report
+    title: "路演观察：定价故事与增长叙事"
+    source:
+      name: FT / Bloomberg
+      url: https://www.ft.com/companies/technology
+    priority: high
+    status: todo
+  - date: "2026-11-17"
+    company: 英伟达
+    type: report
+    title: "Q3 FY2027 财报日：盘前读预期，凌晨看电话会"
+    source:
+      name: NVIDIA IR
+      url: https://investor.nvidia.com
+    priority: high
+    status: todo
+  - date: "2026-11-18"
+    company: 英伟达
+    type: report
+    title: "电话会逐字稿精读：CFO 答问里的边际变化"
+    source:
+      name: NVIDIA IR
+      url: https://investor.nvidia.com
+    priority: high
+    status: todo
+    notes: "重点听供需平衡表述与 2027 资本开支指引"
+  - date: "2026-11-19"
+    company: 英伟达产业链
+    type: report
+    title: "A 股映射：哪些标的真有业绩弹性"
+    source:
+      name: 雪球
+      url: https://xueqiu.com
+    priority: high
+    status: todo
+    notes: "区分 story 与 earnings，回看寒武纪/旭创笔记"
+  - date: "2026-11-20"
+    company: Anthropic PBC
+    type: report
+    title: "上市首日观察：定价 vs 基本面"
+    source:
+      name: SEC EDGAR
+      url: https://www.sec.gov/edgar/search/
+    priority: high
+    status: todo
+  - date: "2026-11-21"
+    company: 招股书固定档
+    type: prospectus
+    title: "招股书精读固定档：港股 18C 特专科技公司"
+    priority: medium
+    status: todo
+    notes: "对比 S-1 的风险披露结构差异"
+  - date: "2026-11-22"
+    company: 周复盘
+    type: review
+    title: "周复盘：英伟达电话会三个边际变化清单"
+    priority: low
+    status: todo
+  - date: "2026-11-23"
+    company: 台积电
+    type: report
+    title: "10 月月度营收：AI 需求的高频验证点"
+    source:
+      name: TSMC IR
+      url: https://investor.tsmc.com
+    priority: medium
+    status: todo
+  - date: "2026-11-24"
+    company: 微软
+    type: report
+    title: "FY26 Q1：Azure 增速与 OpenAI 关联披露"
+    source:
+      name: Microsoft Investor + SEC EDGAR
+      url: https://www.microsoft.com/investor
+    priority: high
+    status: todo
+    notes: "找 10-Q 里 OpenAI 相关科目变化"
+  - date: "2026-11-25"
+    company: 谷歌 / Meta
+    type: report
+    title: "Q3 补读：只看资本开支指引页"
+    source:
+      name: SEC EDGAR
+      url: https://www.sec.gov/edgar/search/
+    priority: medium
+    status: todo
+  - date: "2026-11-26"
+    company: 三星 / 海力士 / 美光
+    type: report
+    title: "对比笔记：存储三巨头的周期错位"
+    priority: high
+    status: todo
+    notes: "综合前两周笔记输出一张对比表"
+  - date: "2026-11-27"
+    company: 基金重仓池
+    type: fund
+    title: "Q3 重仓股汇总（触发 fund_reminder SOP）"
+    source:
+      name: 天天基金
+      url: https://fund.eastmoney.com
+    priority: high
+    status: todo
+    notes: "业绩前 20% + 从业 5 年以上基金经理"
+  - date: "2026-11-28"
+    company: 台积电
+    type: prospectus
+    title: "Q3 法说会逐字稿精读"
+    source:
+      name: TSMC IR
+      url: https://investor.tsmc.com
+    priority: medium
+    status: todo
+  - date: "2026-11-29"
+    company: 内部整理
+    type: review
+    title: "12 月 AI 产业链跟踪表搭建"
+    priority: medium
+    status: todo
+  - date: "2026-11-30"
+    company: 月度大复盘
+    type: review
+    title: "月度大复盘：22 篇归档 + 12 月规划"
+    priority: high
+    status: todo
+fund_reminder:
+  quarterly_task: "每季度挑 5-10 只业绩前 20% 且基金经理从业 5 年以上的主动基金，把他们季报前十大重仓股汇总去重，筛出 3 只以上基金同时重仓的标的，进入财报阅读候选池，自己只负责择时"
+  next_due: "2027-01-20"
+disclosure_calendar:
+  - "Q1 季报：4/15 前后披露"
+  - "半年报：8/31 前披露（信息量最大，精读）"
+  - "Q3 季报：10/22 前后披露"
+  - "年报：3/31 前披露"
