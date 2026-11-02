@@ -199,6 +199,26 @@ export function GuideContent() {
           </p>
         </AccordionContent>
       </AccordionItem>
+
+      <AccordionItem value="error-attribution">
+        <AccordionTrigger>8 · 错题归因方法论</AccordionTrigger>
+        <AccordionContent className="space-y-3">
+          {[
+            { c: "bg-blue-500/10 text-blue-600 dark:text-blue-300", t: "🔵 概念混淆（不知道用什么概念）", d: "解法：回 /concepts 重读费曼讲解，重新裸讲录音——这是知识缺失，不是粗心。" },
+            { c: "bg-amber-500/10 text-amber-600 dark:text-amber-300", t: "🟡 计算错误（思路对但算错）", d: "解法：不是「粗心」，是「自动化不足」——同类计算连续 5 道全对才算过关。" },
+            { c: "bg-violet-500/10 text-violet-600 dark:text-violet-300", t: "🟣 前提假设错（对题目条件理解偏了）", d: "解法：读题时先写「这题已知什么、求什么」，再动笔——审题是独立技能。" },
+            { c: "bg-red-500/10 text-red-600 dark:text-red-300", t: "🔴 数据理解错（把 A 数据当成 B）", d: "解法：养成「先看单位、再看口径、再看时间区间」三连问，看完才准计算。" },
+          ].map((e) => (
+            <div key={e.t} className={`rounded-xl p-3.5 ${e.c}`}>
+              <p className="text-sm font-medium">{e.t}</p>
+              <p className="mt-1 text-sm leading-relaxed opacity-90">{e.d}</p>
+            </div>
+          ))}
+          <p className="rounded-xl bg-primary/10 p-3.5 text-sm text-primary">
+            错题本的核心是「卡壳点」和「归因」，不是抄题。
+          </p>
+        </AccordionContent>
+      </AccordionItem>
     </Accordion>
   );
 }

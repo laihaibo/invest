@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { ConceptDetail } from "@/components/concept-detail";
+import { DrillBookSidebar } from "@/components/drill-book-sidebar";
 import { getAllConcepts, getConcept } from "@/lib/concepts";
+import { getDrillsByConcept } from "@/lib/drills";
 
 export const dynamicParams = false;
 
@@ -40,6 +42,7 @@ export default async function ConceptDetailPage({
         返回概念库
       </Link>
       <ConceptDetail concept={concept} />
+      <DrillBookSidebar drills={getDrillsByConcept(id)} />
     </div>
   );
 }

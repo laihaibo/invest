@@ -11,6 +11,7 @@ import {
   Info,
   Lightbulb,
   GraduationCap,
+  Sigma,
 } from "lucide-react";
 import { NavMoreSheet } from "@/components/nav-more-sheet";
 import { cn } from "@/lib/utils";
@@ -19,6 +20,7 @@ const NAV_ITEMS = [
   { href: "/", label: "今日", icon: BookOpen, mobile: "main" },
   { href: "/calendar", label: "日历", icon: CalendarDays, mobile: "main" },
   { href: "/concepts", label: "概念", icon: GraduationCap, mobile: "main" },
+  { href: "/drill", label: "习题", icon: Sigma, mobile: "main" },
   { href: "/plans", label: "计划", icon: ClipboardList, mobile: "main" },
   { href: "/guide", label: "指南", icon: Lightbulb, mobile: "more" },
   { href: "/archive", label: "归档", icon: Archive, mobile: "more" },
