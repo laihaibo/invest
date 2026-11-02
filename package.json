@@ -9,9 +9,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "new:quant": "node scripts/new-note.mjs quant",
+    "new:report": "node scripts/new-note.mjs report",
+    "new:prospectus": "node scripts/new-note.mjs prospectus"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "15.5.28",
     "react": "19.3.0",
     "react-dom": "19.3.0"
