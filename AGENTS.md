@@ -12,12 +12,17 @@ Invest 是纯静态个人投资学习平台（Next.js 15 静态导出 + GitHub P
 ## 项目结构
 
 ```
-app/            页面（/ /calendar /day/[date] /quant /report/[slug] /archive /about）
+app/            页面（/ /calendar /day/[date] /quant /report/[slug] /archive /about /plans /guide）
 components/     业务组件；components/ui/ 为 shadcn 基础组件
-content/        本地内容源（quant/ report/ prospectus/）
-lib/            content.ts(fs 解析) / note-types.ts(客户端安全类型) / stats.ts / quotes.ts
+content/        本地内容源（quant/ report/ prospectus/ plans/）
+lib/            content.ts(fs) / plans.ts(fs) / note-types.ts 与 plan-types.ts(客户端安全类型) / prompts.ts
 scripts/        new-note.mjs（pnpm new:quant / new:report / new:prospectus）
 ```
+
+## localStorage key 规范
+
+- `invest.plan.status.<date>` 月度计划条目状态（done/todo/skipped 循环）
+- `invest.checklist.<date>` 读财报检查清单（按天重置）
 
 ## frontmatter 规范
 

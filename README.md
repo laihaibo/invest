@@ -34,7 +34,16 @@
 | `/quant/[slug]` | 量化详情：习题 → 我的解法 → 卡点 → 费曼讲解 |
 | `/report/[slug]` | 财报 / 招股书详情（共用路由，slug 不可重名） |
 | `/archive` | 全部笔记时间线，点击 tag 聚合成思维模型库 |
+| `/plans` | 月度计划：`content/plans/YYYY-MM.yaml` 驱动，状态点击循环存 localStorage |
+| `/guide` | 读财报指南 + 6 个 AI 提示词库（可一键复制） |
 | `/about` | 三阶段目标 |
+
+## 月度计划工作流
+
+复制 `content/plans/2026-11.yaml` 改名为下月 → 改 `month`、`theme`、`items` → push。
+`fund_reminder.next_due` 每季度手动更新一次（如 2027-01-20），SOP 卡片自动倒计时。
+计划条目的完成状态存浏览器 localStorage（`invest.plan.status.<日期>`），不写回 YAML，
+避免 push 时产生大量状态 diff 噪音；代价是换设备不同步。
 
 ## 站点地址
 

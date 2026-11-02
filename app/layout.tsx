@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/site-header";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
         <footer className="hidden pb-6 text-center text-xs text-muted-foreground md:block">
           Invest · 以年为单位的认知复利
         </footer>
+        <Toaster />
       </body>
     </html>
   );
