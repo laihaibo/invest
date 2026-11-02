@@ -5,9 +5,6 @@ import type { NoteMeta } from "@/lib/note-types";
 
 export const metadata: Metadata = { title: "归档" };
 
-/** NoteCard 接受 NoteMeta（客户端安全），Note 是其超集可直接传入 */
-type MetaOf = ReturnType<typeof getAllNotes>[number];
-
 export default function NoteArchivePage() {
   const notes: NoteMeta[] = getAllNotes();
   const tags = getAllTags();
