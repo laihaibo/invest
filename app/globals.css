@@ -1,29 +1,325 @@
 @import "tailwindcss";
 
-/* 主题令牌（Tailwind v4 CSS-first 配置） */
+/* 深浅模式跟随系统（media-query 驱动，零 JS） */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/* ============================================================
+   语义色令牌（shadcn 变量 + Liquid Glass 配色）
+   ============================================================ */
+:root {
+  --background: #f5f5f7;
+  --foreground: #1d1d1f;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --primary: #0d9488;
+  --primary-foreground: #ffffff;
+  --secondary: #f2f2f7;
+  --secondary-foreground: #1d1d1f;
+  --muted: #f2f2f7;
+  --muted-foreground: #6e6e73;
+  --accent: #f2f2f7;
+  --accent-foreground: #1d1d1f;
+  --destructive: #ff3b30;
+  --border: rgba(0, 0, 0, 0.08);
+  --ring: #14b8a6;
+  --radius: 1rem;
+}
+
+/* 深色模式：iOS 系统色板 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #f5f5f7;
+    --card: #1c1c1e;
+    --card-foreground: #f5f5f7;
+    --primary: #2dd4bf;
+    --primary-foreground: #0a0a0a;
+    --secondary: #1c1c1e;
+    --secondary-foreground: #f5f5f7;
+    --muted: #1c1c1e;
+    --muted-foreground: #98989d;
+    --accent: #1c1c1e;
+    --accent-foreground: #f5f5f7;
+    --destructive: #ff453a;
+    --border: rgba(255, 255, 255, 0.12);
+    --ring: #2dd4bf;
+  }
+}
+
+/* ============================================================
+   Tailwind v4 主题映射（CSS-first，无 tailwind.config.ts）
+   ============================================================ */
 @theme inline {
-  /* 系统字体栈：中文优先 PingFang / 雅黑 */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* iOS 动态字号比例 */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-2xl: 28px;
+  --text-3xl: 34px;
+
+  /* iOS 连续圆角 */
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+
   --font-sans:
     -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI",
     "Microsoft YaHei", sans-serif;
 }
 
-/* 浅色模式 */
-:root {
-  --background: #f5f5f7;
-  --foreground: #1d1d1f;
+/* ============================================================
+   Liquid Glass 玻璃容器
+   blur ≤ 16px；不支持的浏览器降级为纯色半透明
+   （放在 components 层，保证可被 Tailwind 工具类覆盖）
+   ============================================================ */
+@layer components {
+.glass {
+  --glass-tint: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.1)
+  );
+  background-color: rgba(255, 255, 255, 0.62);
+  background-image: var(--glass-tint);
+  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* 深色模式：跟随系统自动切换 */
+/* 三条内容线的玻璃色调：quant 青绿 / report 蓝 / prospectus 紫 */
+.glass-tint-quant {
+  --glass-tint: linear-gradient(
+    135deg,
+    rgba(13, 148, 136, 0.16),
+    rgba(13, 148, 136, 0.02)
+  );
+}
+.glass-tint-report {
+  --glass-tint: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.14),
+    rgba(37, 99, 235, 0.02)
+  );
+}
+.glass-tint-prospectus {
+  --glass-tint: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.14),
+    rgba(124, 58, 237, 0.02)
+  );
+}
+
+/* 深色模式玻璃 */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #f5f5f7;
+  .glass {
+    --glass-tint: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    );
+    background-color: rgba(28, 28, 30, 0.72);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  .glass-tint-quant {
+    --glass-tint: linear-gradient(
+      135deg,
+      rgba(45, 212, 191, 0.12),
+      rgba(45, 212, 191, 0.02)
+    );
+  }
+  .glass-tint-report {
+    --glass-tint: linear-gradient(
+      135deg,
+      rgba(96, 165, 250, 0.12),
+      rgba(96, 165, 250, 0.02)
+    );
+  }
+  .glass-tint-prospectus {
+    --glass-tint: linear-gradient(
+      135deg,
+      rgba(167, 139, 250, 0.12),
+      rgba(167, 139, 250, 0.02)
+    );
   }
 }
 
+/* 降级：不支持 backdrop-filter → 纯色半透明（低端设备 / 旧浏览器） */
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .glass {
+    background-color: rgba(255, 255, 255, 0.92);
+    background-image: none;
+    backdrop-filter: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .glass {
+      background-color: rgba(28, 28, 30, 0.95);
+    }
+  }
+}
+}
+/* ===== @layer components 结束 ===== */
+
+/* 动效护栏：尊重系统"减弱动态效果" */
+@media (prefers-reduced-motion: reduce) {
+  .glass,
+  .glass * {
+    transition: none !important;
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   基础样式
+   ============================================================ */
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
+  background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
   color: var(--foreground);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(180deg, #0a0a0a 0%, #1c1c1e 100%);
+  }
+}
+
+/* Markdown 正文排版 */
+.prose-note {
+  line-height: 1.75;
+  font-size: var(--text-base);
+}
+.prose-note h1 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin: 1.6em 0 0.6em;
+}
+.prose-note h1:first-child {
+  margin-top: 0;
+}
+.prose-note h2 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin: 1.5em 0 0.5em;
+}
+.prose-note h3 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin: 1.2em 0 0.4em;
+}
+.prose-note p {
+  margin: 0.7em 0;
+}
+.prose-note ul,
+.prose-note ol {
+  padding-left: 1.4em;
+  margin: 0.7em 0;
+}
+.prose-note ul {
+  list-style: disc;
+}
+.prose-note ol {
+  list-style: decimal;
+}
+.prose-note li {
+  margin: 0.3em 0;
+}
+.prose-note a {
+  color: var(--primary);
+  text-underline-offset: 3px;
+}
+.prose-note blockquote {
+  border-left: 3px solid var(--primary);
+  padding-left: 0.9em;
+  margin: 0.9em 0;
+  color: var(--muted-foreground);
+}
+.prose-note code {
+  font-size: 0.9em;
+  background: var(--secondary);
+  border-radius: 5px;
+  padding: 0.15em 0.4em;
+}
+.prose-note pre {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.9em 1em;
+  overflow-x: auto;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+.prose-note pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+.prose-note img {
+  border-radius: 12px;
+  margin: 0.9em 0;
+}
+.prose-note hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.6em 0;
+}
+.prose-note table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  margin: 0.9em 0;
+}
+.prose-note th,
+.prose-note td {
+  border: 1px solid var(--border);
+  padding: 0.45em 0.7em;
+  text-align: left;
+}
+.prose-note th {
+  background: var(--secondary);
+  font-weight: 600;
+}
+
+/* 隐藏滚动条但保留滚动能力（横向滑动月份） */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
