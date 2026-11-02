@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { NoteType } from "@/lib/content";
+import type { NoteType } from "@/lib/note-types";
 import { cn } from "@/lib/utils";
 
 const DOT_CLASS: Record<NoteType, string> = {

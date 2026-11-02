@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { TypeBadge } from "@/components/type-badge";
-import { formatDateCN, type NoteMeta, type NoteType } from "@/lib/content";
+import { formatDateCN, type NoteMeta, type NoteType } from "@/lib/note-types";
 import { cn } from "@/lib/utils";
 
 /** 每种内容线一种玻璃色调 */

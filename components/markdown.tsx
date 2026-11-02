@@ -32,7 +32,9 @@ export function Markdown({ content }: { content: string }) {
             </a>
           ),
         }}
-      />
+      >
+        {content}
+      </ReactMarkdown>
     </div>
   );
 }

@@ -3,8 +3,7 @@ import { ChevronLeft, Tags } from "lucide-react";
 import { Markdown } from "@/components/markdown";
 import { NoteSheet } from "@/components/note-sheet";
 import { TypeBadge } from "@/components/type-badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { formatDateCN, type Note } from "@/lib/content";
+import { formatDateCN, type Note } from "@/lib/note-types";
 import { cn } from "@/lib/utils";
 
 const TINT_CLASS: Record<Note["type"], string> = {

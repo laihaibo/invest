@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { NOTE_TYPE_LABELS, type NoteType } from "@/lib/content";
+import { NOTE_TYPE_LABELS, type NoteType } from "@/lib/note-types";
 
 export function TypeBadge({
   type,

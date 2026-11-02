@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { buildMonthGrid, monthLabel } from "@/lib/calendar";
-import type { NoteType } from "@/lib/content";
+import type { NoteType } from "@/lib/note-types";
 import { CalendarDayCell } from "@/components/calendar-day-cell";
 
 export interface CalendarDayInfo {
