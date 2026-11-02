@@ -10,18 +10,21 @@ import {
   ClipboardList,
   Info,
   Lightbulb,
+  GraduationCap,
 } from "lucide-react";
+import { NavMoreSheet } from "@/components/nav-more-sheet";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { href: "/", label: "今日", icon: BookOpen, mobile: true },
-  { href: "/calendar", label: "日历", icon: CalendarDays, mobile: true },
-  { href: "/quant", label: "量化", icon: Activity, mobile: false },
-  { href: "/plans", label: "计划", icon: ClipboardList, mobile: true },
-  { href: "/guide", label: "指南", icon: Lightbulb, mobile: true },
-  { href: "/archive", label: "归档", icon: Archive, mobile: true },
-  { href: "/about", label: "关于", icon: Info, mobile: false },
-];
+  { href: "/", label: "今日", icon: BookOpen, mobile: "main" },
+  { href: "/calendar", label: "日历", icon: CalendarDays, mobile: "main" },
+  { href: "/concepts", label: "概念", icon: GraduationCap, mobile: "main" },
+  { href: "/plans", label: "计划", icon: ClipboardList, mobile: "main" },
+  { href: "/guide", label: "指南", icon: Lightbulb, mobile: "more" },
+  { href: "/archive", label: "归档", icon: Archive, mobile: "more" },
+  { href: "/quant", label: "量化", icon: Activity, mobile: "more" },
+  { href: "/about", label: "关于", icon: Info, mobile: "more" },
+] as const;
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -70,7 +73,7 @@ export function SiteHeader() {
       <nav className="fixed inset-x-0 bottom-0 z-40 md:hidden">
         <div className="glass border-x-0 border-b-0 rounded-t-2xl px-2 pt-1.5 pb-[max(env(safe-area-inset-bottom),0.5rem)]">
           <div className="grid grid-cols-5">
-            {NAV_ITEMS.filter((item) => item.mobile).map((item) => {
+            {NAV_ITEMS.filter((item) => item.mobile === "main").map((item) => {
               const active = isActive(pathname, item.href);
               return (
                 <Link
@@ -91,6 +94,12 @@ export function SiteHeader() {
                 </Link>
               );
             })}
+            <NavMoreSheet
+              items={NAV_ITEMS.filter((i) => i.mobile === "more").map(
+                ({ href, label }) => ({ href, label }),
+              )}
+              active={(href) => isActive(pathname, href)}
+            />
           </div>
         </div>
       </nav>

@@ -174,6 +174,31 @@ export function GuideContent() {
           ))}
         </AccordionContent>
       </AccordionItem>
+
+      <AccordionItem value="feynman-method">
+        <AccordionTrigger>7 · 费曼学习法操作指南</AccordionTrigger>
+        <AccordionContent className="space-y-3">
+          {[
+            { n: "1", t: "选概念", d: "从 /concepts 选一个 status = 未学 或 学习中的概念，只选一个。" },
+            { n: "2", t: "裸讲", d: "合上所有资料，用手机录音 3 分钟，假装讲给完全不懂的家人听，不许翻书。" },
+            { n: "3", t: "卡壳反馈", d: "回放录音，列出所有卡壳点和逻辑跳跃的地方——这些就是你没真懂的位置。" },
+            { n: "4", t: "重新学习 + 再讲", d: "回 /concepts 详情页重点补卡壳点，再录一遍，直到 3 分钟流畅讲完。" },
+          ].map((s) => (
+            <div key={s.n} className="flex items-start gap-3 rounded-xl bg-secondary/60 p-3.5">
+              <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/12 text-sm font-semibold text-primary">
+                {s.n}
+              </span>
+              <div>
+                <p className="text-sm font-medium">{s.t}</p>
+                <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+              </div>
+            </div>
+          ))}
+          <p className="rounded-xl bg-primary/10 p-3.5 text-sm text-primary">
+            「听懂了」和「会讲了」之间的差距，就是你需要训练的全部。
+          </p>
+        </AccordionContent>
+      </AccordionItem>
     </Accordion>
   );
 }
